@@ -1,0 +1,47 @@
+import React from "react";
+import Box from "@mui/material/Box";
+import { motion } from "framer-motion/dist/framer-motion";
+
+function BlogHeader() {
+  return (
+    <div>
+      <Box
+        component="section"
+        className="page-heading course-mobile-view"
+        sx={{
+          background: `#1C477C url(${
+            window.matchMedia("(max-width: 668px)").matches
+              ? ""
+              : "https://tv-academy-assets.s3.eu-west-2.amazonaws.com/blog+page.jpg"
+          }) 0 0 no-repeat`,
+
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
+        <motion.div
+          className="animate-margin"
+          initial={[{ opacity: 0 }]}
+          whileInView={[{ opacity: 1, marginLeft: 0 }]}
+          transition={{ duration: 1 }}
+        >
+          <div className="course-container">
+            {/* <img src={BlogHead1} alt="" width="15" /> */}
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item active">
+                  Home
+                  <div className="line"></div>
+                </li>
+                <li className="breadcrumb-item active">Blogs</li>
+              </ol>
+            </nav>
+            <h1 className="event-heading">Blogs</h1>
+          </div>
+        </motion.div>
+      </Box>
+    </div>
+  );
+}
+
+export default BlogHeader;
